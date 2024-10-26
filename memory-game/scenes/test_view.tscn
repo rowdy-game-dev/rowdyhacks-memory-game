@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo3d2s12b7u7s"]
+
+[ext_resource type="PackedScene" uid="uid://08i43mt66g7i" path="res://scenes/cards/empty_card.tscn" id="1_1ljb0"]
+
+[node name="test" type="Node2D"]
+
+[node name="empty_card" parent="." instance=ExtResource("1_1ljb0")]
+position = Vector2(95, 128)
