@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var sprite: Node = $"sprite"
 @onready var collision_shape = $"CollisionShape2D"
-@export var size_scale: float = 4
+@export var size_scale: float = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
