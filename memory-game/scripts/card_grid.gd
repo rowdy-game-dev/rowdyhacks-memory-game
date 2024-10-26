@@ -16,6 +16,7 @@ func _ready() -> void:
 	while y < height_cards:
 		while x < width_cards:
 			var card_node = card_scene.instantiate()
+			card_node.scale = Vector2(1,1)
 			card_node.position.x = (CARD_WIDTH * x) + (CARD_WIDTH/2)
 			card_node.position.y = 14
 			add_child(card_node)
