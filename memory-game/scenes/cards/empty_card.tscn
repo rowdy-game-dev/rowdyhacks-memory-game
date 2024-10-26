@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://08i43mt66g7i"]
+
+[ext_resource type="Script" path="res://scripts/base_card.gd" id="1_1l2sw"]
+[ext_resource type="Texture2D" uid="uid://bc4e1frkb7b71" path="res://assets/Card flip animation.png" id="2_ifqfy"]
+[ext_resource type="Texture2D" uid="uid://cqxo3qmtw6hnv" path="res://assets/Card.png" id="3_oxgv1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27ybb"]
+atlas = ExtResource("2_ifqfy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5rs4"]
+atlas = ExtResource("2_ifqfy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yt10"]
+atlas = ExtResource("2_ifqfy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ah01"]
+atlas = ExtResource("2_ifqfy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ergcs"]
+atlas = ExtResource("2_ifqfy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1b6a"]
+atlas = ExtResource("2_ifqfy")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt04f"]
+atlas = ExtResource("2_ifqfy")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhi8y"]
+atlas = ExtResource("3_oxgv1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2cxw4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27ybb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5rs4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yt10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ah01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ergcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1b6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt04f")
+}],
+"loop": true,
+"name": &"flipping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhi8y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_340u0"]
+size = Vector2(20, 28)
+
+[node name="empty_card" type="Node2D"]
+script = ExtResource("1_1l2sw")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_2cxw4")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.42727e-06)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_340u0")
