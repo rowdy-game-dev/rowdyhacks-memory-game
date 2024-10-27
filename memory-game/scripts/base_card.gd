@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEventMouseButton, shape_idx: int) -> void:
+	if not event.pressed: return
 	sprite.play("flipping", 1, false)
 	timer.start()
 
