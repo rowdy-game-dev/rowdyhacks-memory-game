@@ -36,7 +36,6 @@ func _ready() -> void:
 		card.on_flip.connect(on_card_flip)
 		card.on_unflip.connect(on_card_unflip)
 	game_won.connect(on_game_won)
-	win_game()
 
 func win_game():
 	for card in cards_list:

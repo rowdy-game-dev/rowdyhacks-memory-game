@@ -13,4 +13,8 @@ texture = ExtResource("2_dgsdx")
 [node name="card_grid2" parent="Sprite2D" instance=ExtResource("1_fn3bh")]
 position = Vector2(-8.901, -8.5)
 scale = Vector2(0.0468933, 0.0468933)
+width_cards = 4
+height_cards = 3
 size_scale = 4.5
+horizontal_margin = 5
+vertical_margin = 10
