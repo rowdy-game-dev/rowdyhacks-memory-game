@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo3d2s12b7u7s"]
+[gd_scene load_steps=5 format=3 uid="uid://bo3d2s12b7u7s"]
 
+[ext_resource type="Script" path="res://scenes/test_view.gd" id="1_cuvqd"]
 [ext_resource type="PackedScene" uid="uid://ciqaigwixwp3m" path="res://scenes/card_grid.tscn" id="1_fn3bh"]
-[ext_resource type="Texture2D" uid="uid://dsul8ixlvr0nj" path="res://assets/Casino background.png" id="2_dgsdx"]
+[ext_resource type="Texture2D" uid="uid://d12u2bd37t45e" path="res://assets/Casino background.png" id="2_dgsdx"]
+[ext_resource type="PackedScene" uid="uid://biqtvvp4mu8bj" path="res://scenes/pause_menu.tscn" id="4_ltue7"]
 
 [node name="test" type="Node2D"]
+script = ExtResource("1_cuvqd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 357.5)
@@ -14,3 +17,10 @@ texture = ExtResource("2_dgsdx")
 position = Vector2(-8.901, -8.5)
 scale = Vector2(0.0468933, 0.0468933)
 size_scale = 4.5
+
+[node name="Pause_menu" parent="." instance=ExtResource("4_ltue7")]
+visible = false
+offset_left = 631.0
+offset_top = 353.0
+offset_right = 631.0
+offset_bottom = 353.0
