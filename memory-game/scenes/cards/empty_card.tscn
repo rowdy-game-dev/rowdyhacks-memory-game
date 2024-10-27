@@ -191,7 +191,7 @@ size_scale = null
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2cxw4")
-animation = &"silver_flip_out"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -201,6 +201,3 @@ shape = SubResource("RectangleShape2D_340u0")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.5
-
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
