@@ -24,8 +24,9 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEventMouseButton, shape_idx: int) -> void:
-	if not event.pressed or flipped or grid.is_pair_flipped: return
-	if grid and len(grid.flipped_cards_list) >= 2: return
+	if not event.pressed or flipped : return
+	if grid:
+		if len(grid.flipped_cards_list) >= 2 or grid.is_pair_flipped: return
 	on_flip.emit(self)
 	flipped = true
 	sprite.play("flipping", 1, false)
