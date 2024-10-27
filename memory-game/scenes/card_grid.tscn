@@ -5,3 +5,11 @@
 [node name="card_grid" type="Node2D"]
 position = Vector2(0, 1)
 script = ExtResource("1_tyxhe")
+width_cards = null
+height_cards = null
+size_scale = null
+horizontal_margin = null
+vertical_margin = null
+
+[node name="pair_flipped_timer" type="Timer" parent="."]
+wait_time = 1.5
