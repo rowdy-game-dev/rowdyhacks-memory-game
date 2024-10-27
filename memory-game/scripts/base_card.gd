@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var sprite: Node = $"sprite"
+@onready var sprite: AnimatedSprite2D = $"sprite"
 @onready var area_2d: Area2D = $"Area2D"
 @export var size_scale: float = 1
 @onready var timer: Timer = $"Timer"
@@ -17,10 +17,10 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEventMouseButton, shape_idx: int) -> void:
-	sprite.play("silver_flip_in")
+	sprite.play("flipping", 1, false)
 	timer.start()
 
 
 func _on_timer_timeout() -> void:
-	sprite.play("silver_flip_out")
+	sprite.play("flipping", -1, true)
 	timer.stop()
