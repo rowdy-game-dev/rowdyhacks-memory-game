@@ -14,6 +14,7 @@ signal pair_unflipped
 
 const CARD_WIDTH := 20.0
 const CARD_HEIGHT := 28.0
+const DEFAULT_ADDED_POINTS := 10
 
 var card_types = null
 var card_scene := load("res://scenes/cards/empty_card.tscn")
@@ -21,6 +22,8 @@ var card_animations := load_animations()
 var cards_list := []
 var is_pair_flipped := false
 var flipped_cards_list := []
+
+var wave_animation_counter: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,7 +37,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	wave_animation(delta)
 
 func load_animations() -> Array:
 	var animation_list := DirAccess.get_files_at("res://assets/card animations")
@@ -49,11 +52,15 @@ func get_random_type():
 		for card in card_instance.CardTypes.values():
 			if card != card_instance.CardTypes.Empty:
 				card_types.append_array([card,card])
-	print(card_types)
 	var i = RandomNumberGenerator.new().randi_range(0,len(card_types)-1)
 	return card_types.pop_at(i)
 			
-		
+func wave_animation(delta):
+	wave_animation_counter += delta * 2
+	for i in range(len(cards_list)):
+		cards_list[i].position.y = cards_list[i].original_position.y + (
+			(4.0) * sin(wave_animation_counter - (i % width_cards))
+		)
 
 func make_grid(width_cards:int, height_cards:int):
 	var id = 0
@@ -65,6 +72,7 @@ func make_grid(width_cards:int, height_cards:int):
 			card_node.grid = self
 			card_node.position.x = (CARD_WIDTH * x * size_scale) + ((CARD_WIDTH*size_scale)/2) + (horizontal_margin * x)
 			card_node.position.y = (CARD_HEIGHT * y * size_scale) + ((CARD_HEIGHT*size_scale)/2) + (vertical_margin * y)
+			card_node.original_position = card_node.position
 			card_node.id = id
 			card_node.set_type(get_random_type())
 			cards_list.append(card_node)
@@ -82,11 +90,19 @@ func on_card_unflip(node):
 
 func on_pair_flipped():
 	is_pair_flipped = true
+	if flipped_cards_list[0].type == flipped_cards_list[1].type:
+		on_pair_match()
 	pair_flipped_timer.start()
 
 func on_pair_unflipped():
 	for card in flipped_cards_list:
 		card.unflip()
+
+func on_pair_match():
+	for card in flipped_cards_list:
+		card.matched = true
+	flipped_cards_list.clear()
+	points_added.emit(DEFAULT_ADDED_POINTS)
 
 func on_pair_timeout():
 	is_pair_flipped = false

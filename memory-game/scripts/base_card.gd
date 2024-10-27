@@ -17,9 +17,11 @@ enum CardTypes {
 @onready var area_2d: Area2D = $"Area2D"
 @onready var timer: Timer = $"Timer"
 @export var size_scale: float = 1
+var original_position := Vector2(0,0)
 var sprite_frames := load("res://assets/card animations/empty_card.tres")
 var current_card = null
 var flipped: bool = false
+var matched: bool = false
 var id: int
 var type
 var grid
@@ -36,7 +38,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_area_2d_input_event(viewport: Node, event: InputEventMouseButton, shape_idx: int) -> void:
-	if not event.pressed or flipped : return
+	if not event.pressed or flipped or matched: return
 	if grid:
 		if len(grid.flipped_cards_list) >= 2 or grid.is_pair_flipped: return
 	on_flip.emit(self)
@@ -71,6 +73,7 @@ func get_type_string() -> String:
 
 
 func unflip():
+	if matched: return
 	on_unflip.emit(self)
 	flipped = false
 	sprite.play("flipping", -1, true)
