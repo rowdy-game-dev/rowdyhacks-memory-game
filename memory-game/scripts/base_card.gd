@@ -3,6 +3,16 @@ extends Node2D
 signal on_flip(node)
 signal on_unflip(node)
 
+enum CardTypes {
+	Empty,
+	Emerald,
+	Rose,
+	Ruby,
+	Shiappy,
+	Silver,
+	Yellow
+}
+
 @onready var sprite: AnimatedSprite2D = $"sprite"
 @onready var area_2d: Area2D = $"Area2D"
 @onready var timer: Timer = $"Timer"
@@ -22,7 +32,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_area_2d_input_event(viewport: Node, event: InputEventMouseButton, shape_idx: int) -> void:
 	if not event.pressed or flipped : return
 	if grid:
@@ -31,6 +40,29 @@ func _on_area_2d_input_event(viewport: Node, event: InputEventMouseButton, shape
 	flipped = true
 	sprite.play("flipping", 1, false)
 	timer.start()
+
+func set_type(type):
+	self.type = type
+	var animation = get_type_string()
+	sprite.sprite_frames = load("res://assets/card animations/%s_card.tres" % animation)
+
+func get_type_string() -> String:
+	match type:
+		CardTypes.Emerald:
+			return "emerald"
+		CardTypes.Rose:
+			return "rose"
+		CardTypes.Ruby:
+			return "ruby"
+		CardTypes.Shiappy:
+			return "shiappy"
+		CardTypes.Silver:
+			return "silver"
+		CardTypes.Yellow:
+			return "yellow"
+		_:
+			return "empty"
+
 
 func unflip():
 	on_unflip.emit(self)

@@ -7,7 +7,6 @@ signal pair_unflipped
 @export var width_cards: int = 4
 @export var height_cards: int = 3
 @export var size_scale: float = 3
-
 @export var horizontal_margin: int = 5
 @export var vertical_margin: int = 10
 
@@ -16,7 +15,9 @@ signal pair_unflipped
 const CARD_WIDTH := 20.0
 const CARD_HEIGHT := 28.0
 
+var card_types = null
 var card_scene := load("res://scenes/cards/empty_card.tscn")
+var card_animations := load_animations()
 var cards_list := []
 var is_pair_flipped := false
 var flipped_cards_list := []
@@ -35,6 +36,21 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func load_animations() -> Array:
+	var animation_list := DirAccess.get_files_at("res://assets/card animations")
+	animation_list.remove_at(animation_list.bsearch("empty_card.tres"))
+
+	return animation_list
+
+func get_random_type():
+	if not card_types:
+		var card_instance = card_scene.instantiate()
+		card_types = []
+		for card in card_instance.CardTypes:
+			card_types.append_array([card,card])
+			print(card)
+		
+
 func make_grid(width_cards:int, height_cards:int):
 	var id = 0
 	for y in range(height_cards):
@@ -46,6 +62,7 @@ func make_grid(width_cards:int, height_cards:int):
 			card_node.position.x = (CARD_WIDTH * x * size_scale) + ((CARD_WIDTH*size_scale)/2) + (horizontal_margin * x)
 			card_node.position.y = (CARD_HEIGHT * y * size_scale) + ((CARD_HEIGHT*size_scale)/2) + (vertical_margin * y)
 			card_node.id = id
+			card_node.set_type(get_random_type())
 			cards_list.append(card_node)
 			id += 1
 			add_child(card_node)
