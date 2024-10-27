@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://0u4q2l0b47va"]
+
+[ext_resource type="Script" path="res://scripts/score.gd" id="1_6g3rk"]
+[ext_resource type="PackedScene" uid="uid://08i43mt66g7i" path="res://scenes/cards/empty_card.tscn" id="2_oy67y"]
+
+[node name="score" type="Node2D"]
+script = ExtResource("1_6g3rk")
+
+[node name="score_label" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 475.0
+offset_top = 217.0
+offset_right = 589.0
+offset_bottom = 267.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 36
+text = "SCORE: 0"
+
+[node name="empty_card" parent="." instance=ExtResource("2_oy67y")]
+position = Vector2(4, 57)
