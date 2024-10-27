@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://pdc0i1qym15r"]
+[gd_scene load_steps=5 format=3 uid="uid://5poapgr670rw"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_7xniw"]
 [ext_resource type="Texture2D" uid="uid://b6of1v7bsesev" path="res://assets/title scene.png" id="2_tnbwk"]
@@ -37,32 +37,29 @@ theme_override_constants/margin_bottom = 12
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 120
+theme_override_constants/separation = 100
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 60
+theme_override_constants/separation = 100
 alignment = 1
 
-[node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="seperator" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Seperator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Seperator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Play"
+text = "play"
 
-[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Quit"
+text = "quit"
 
 [node name="TitleFlash" type="Sprite2D" parent="."]
 position = Vector2(875, 127)
@@ -74,5 +71,5 @@ position = Vector2(442, 289)
 scale = Vector2(8, 8)
 texture = ExtResource("4_iy413")
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
