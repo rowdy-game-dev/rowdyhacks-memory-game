@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://rvpjppmmpj1r"]
+
+[ext_resource type="Texture2D" uid="uid://ccapwqu0quy1y" path="res://assets/Card flip emerald animation.png" id="1_0f50b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r3jh"]
+atlas = ExtResource("1_0f50b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl4gr"]
+atlas = ExtResource("1_0f50b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_865kw"]
+atlas = ExtResource("1_0f50b")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nx2wa"]
+atlas = ExtResource("1_0f50b")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8jr3"]
+atlas = ExtResource("1_0f50b")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7p17"]
+atlas = ExtResource("1_0f50b")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wkly"]
+atlas = ExtResource("1_0f50b")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpgu2"]
+atlas = ExtResource("1_0f50b")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r3jh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl4gr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_865kw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nx2wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8jr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7p17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wkly")
+}],
+"loop": false,
+"name": &"flipping",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpgu2")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
