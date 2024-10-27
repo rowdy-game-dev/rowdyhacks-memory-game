@@ -28,4 +28,3 @@ func make_grid(width_cards:int, height_cards:int):
 			card_node.position.x = (CARD_WIDTH * x * size_scale) + ((CARD_WIDTH*size_scale)/2) + (horizontal_margin * x)
 			card_node.position.y = (CARD_HEIGHT * y * size_scale) + ((CARD_HEIGHT*size_scale)/2) + (vertical_margin * y)
 			add_child(card_node)
-			print(card_node.position)
