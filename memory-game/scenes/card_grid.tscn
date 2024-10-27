@@ -5,6 +5,3 @@
 [node name="card_grid" type="Node2D"]
 position = Vector2(0, 1)
 script = ExtResource("1_tyxhe")
-width_cards = null
-height_cards = null
-size_scale = null
