@@ -72,7 +72,6 @@ func wave_animation(delta):
 		)
 
 func on_game_won():
-	game_ended = true
 	for i in range(len(cards_list)):
 		cards_list[i].timer.stop()
 		var newtimer = Timer.new()
