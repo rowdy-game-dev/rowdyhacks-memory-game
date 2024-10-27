@@ -1,6 +1,7 @@
 extends Node2D
 
 signal points_added(points)
+signal game_won
 signal pair_flipped
 signal pair_unflipped
 
@@ -18,10 +19,10 @@ const DEFAULT_ADDED_POINTS := 10
 
 var card_types = null
 var card_scene := load("res://scenes/cards/empty_card.tscn")
-var card_animations := load_animations()
 var cards_list := []
 var is_pair_flipped := false
 var flipped_cards_list := []
+var game_ended := false
 
 var wave_animation_counter: float = 0
 
@@ -34,16 +35,25 @@ func _ready() -> void:
 	for card in cards_list:
 		card.on_flip.connect(on_card_flip)
 		card.on_unflip.connect(on_card_unflip)
+	game_won.connect(on_game_won)
+	win_game()
+
+func win_game():
+	for card in cards_list:
+		for card2 in cards_list:
+			if card.type == card2.type:	
+				card.on_flip.emit(card)
+				card2.on_flip.emit(card)
+				card.flipped = true
+				card2.flipped = true
+				card.sprite.play("flipping", 1, false)
+				card2.sprite.play("flipping", 1, false)
+				card.timer.start()
+				card2.timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	wave_animation(delta)
-
-func load_animations() -> Array:
-	var animation_list := DirAccess.get_files_at("res://assets/card animations")
-	animation_list.remove_at(animation_list.bsearch("empty_card.tres"))
-
-	return animation_list
 
 func get_random_type():
 	if not card_types:
@@ -61,6 +71,20 @@ func wave_animation(delta):
 		cards_list[i].position.y = cards_list[i].original_position.y + (
 			(4.0) * sin(wave_animation_counter - (i % width_cards))
 		)
+
+func on_game_won():
+	game_ended = true
+	for i in range(len(cards_list)):
+		cards_list[i].timer.stop()
+		var newtimer = Timer.new()
+		newtimer.wait_time = 1 + (i * 0.1)
+		cards_list[i].newtimer = newtimer
+		cards_list[i].add_child(cards_list[i].newtimer)
+		cards_list[i].matched = false
+		cards_list[i].newtimer.start()
+		cards_list[i].newtimer.timeout.connect(cards_list[i].newtimer.stop)
+		cards_list[i].newtimer.timeout.connect(cards_list[i].unflip)
+		print(i)
 
 func make_grid(width_cards:int, height_cards:int):
 	var id = 0
@@ -103,6 +127,13 @@ func on_pair_match():
 		card.matched = true
 	flipped_cards_list.clear()
 	points_added.emit(DEFAULT_ADDED_POINTS)
+	if check_win(): game_won.emit()
+
+func check_win():
+	for card in cards_list:
+		if not card.matched:
+			return false
+	return true
 
 func on_pair_timeout():
 	is_pair_flipped = false

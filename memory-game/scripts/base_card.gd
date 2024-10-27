@@ -17,6 +17,7 @@ enum CardTypes {
 @onready var area_2d: Area2D = $"Area2D"
 @onready var timer: Timer = $"Timer"
 @export var size_scale: float = 1
+var newtimer: Timer
 var original_position := Vector2(0,0)
 var sprite_frames := load("res://assets/card animations/empty_card.tres")
 var current_card = null
