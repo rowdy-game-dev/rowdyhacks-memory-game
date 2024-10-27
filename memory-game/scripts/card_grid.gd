@@ -46,9 +46,13 @@ func get_random_type():
 	if not card_types:
 		var card_instance = card_scene.instantiate()
 		card_types = []
-		for card in card_instance.CardTypes:
-			card_types.append_array([card,card])
-			print(card)
+		for card in card_instance.CardTypes.values():
+			if card != card_instance.CardTypes.Empty:
+				card_types.append_array([card,card])
+	print(card_types)
+	var i = RandomNumberGenerator.new().randi_range(0,len(card_types)-1)
+	return card_types.pop_at(i)
+			
 		
 
 func make_grid(width_cards:int, height_cards:int):
