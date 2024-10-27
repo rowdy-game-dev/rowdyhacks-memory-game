@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://08i43mt66g7i"]
 
 [ext_resource type="Script" path="res://scripts/base_card.gd" id="1_1l2sw"]
-[ext_resource type="Texture2D" uid="uid://cft2jnyyvcbit" path="res://assets/Card flip animation.png" id="2_ifqfy"]
-[ext_resource type="Texture2D" uid="uid://dcccr2af05vdu" path="res://assets/Card.png" id="3_oxgv1"]
+[ext_resource type="Texture2D" uid="uid://byn1y6338y1fn" path="res://assets/Card flip animation.png" id="2_ifqfy"]
+[ext_resource type="Texture2D" uid="uid://co1bgnr7dccq6" path="res://assets/Card.png" id="3_oxgv1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_27ybb"]
 atlas = ExtResource("2_ifqfy")
@@ -82,7 +82,7 @@ size_scale = null
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2cxw4")
-animation = &"flipping"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="."]
