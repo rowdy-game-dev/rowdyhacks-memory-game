@@ -187,10 +187,8 @@ size = Vector2(20, 28)
 
 [node name="empty_card" type="Node2D"]
 script = ExtResource("1_1l2sw")
-size_scale = 1.0
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_2cxw4")
 animation = &"silver_flip_out"
 autoplay = "idle"
