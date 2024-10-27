@@ -8,11 +8,10 @@ size = Vector2(20, 28)
 
 [node name="empty_card" type="Node2D"]
 script = ExtResource("1_1l2sw")
-size_scale = 6.475
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_pcpfw")
-animation = &"idle"
+animation = &"flipping"
 
 [node name="Area2D" type="Area2D" parent="."]
 
