@@ -1,7 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo3d2s12b7u7s"]
+[gd_scene load_steps=3 format=3 uid="uid://bo3d2s12b7u7s"]
 
 [ext_resource type="PackedScene" uid="uid://ciqaigwixwp3m" path="res://scenes/card_grid.tscn" id="1_fn3bh"]
+[ext_resource type="Texture2D" uid="uid://dsul8ixlvr0nj" path="res://assets/Casino background.png" id="2_dgsdx"]
 
 [node name="test" type="Node2D"]
 
-[node name="card_grid2" parent="." instance=ExtResource("1_fn3bh")]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(640, 357.5)
+scale = Vector2(26.625, 22.2813)
+texture = ExtResource("2_dgsdx")
+
+[node name="card_grid2" parent="Sprite2D" instance=ExtResource("1_fn3bh")]
+position = Vector2(-8.901, -8.5)
+scale = Vector2(0.0468933, 0.0468933)
+size_scale = 4.5

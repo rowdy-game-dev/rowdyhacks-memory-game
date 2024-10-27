@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://w0gy0tofgehu"]
+
+[ext_resource type="Texture2D" uid="uid://c2ouuiaf1tfna" path="res://assets/card spritesheets/Card flip animation.png" id="1_ghohu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fgy1"]
+atlas = ExtResource("1_ghohu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrj1h"]
+atlas = ExtResource("1_ghohu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j36yo"]
+atlas = ExtResource("1_ghohu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1omkx"]
+atlas = ExtResource("1_ghohu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et0hd"]
+atlas = ExtResource("1_ghohu")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q2xx"]
+atlas = ExtResource("1_ghohu")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ah7ya"]
+atlas = ExtResource("1_ghohu")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adgmx"]
+atlas = ExtResource("1_ghohu")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fgy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrj1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j36yo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1omkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et0hd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q2xx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ah7ya")
+}],
+"loop": false,
+"name": &"flipping",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adgmx")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
