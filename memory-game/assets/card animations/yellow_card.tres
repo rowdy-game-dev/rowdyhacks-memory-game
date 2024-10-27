@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://c6gponl4t2f"]
 
-[ext_resource type="Texture2D" uid="uid://28g44xvadp3r" path="res://assets/Card flip yellow animation.png" id="1_gwcg6"]
+[ext_resource type="Texture2D" uid="uid://28g44xvadp3r" path="res://assets/card spritesheets/Card flip yellow animation.png" id="1_gwcg6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2pmhe"]
 atlas = ExtResource("1_gwcg6")
