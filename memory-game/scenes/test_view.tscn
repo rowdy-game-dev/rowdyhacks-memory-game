@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo3d2s12b7u7s"]
+[gd_scene load_steps=3 format=3 uid="uid://bo3d2s12b7u7s"]
 
-[ext_resource type="PackedScene" uid="uid://08i43mt66g7i" path="res://scenes/cards/empty_card.tscn" id="1_1ljb0"]
+[ext_resource type="PackedScene" uid="uid://ciqaigwixwp3m" path="res://scenes/card_grid.tscn" id="1_fn3bh"]
+[ext_resource type="PackedScene" uid="uid://08i43mt66g7i" path="res://scenes/cards/empty_card.tscn" id="2_muspv"]
 
 [node name="test" type="Node2D"]
 
-[node name="empty_card" parent="." instance=ExtResource("1_1ljb0")]
-position = Vector2(95, 128)
+[node name="card_grid2" parent="." instance=ExtResource("1_fn3bh")]
+size_scale = 1.0
+
+[node name="empty_card" parent="." instance=ExtResource("2_muspv")]
