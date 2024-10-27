@@ -5,4 +5,3 @@
 [node name="test" type="Node2D"]
 
 [node name="card_grid2" parent="." instance=ExtResource("1_fn3bh")]
-size_scale = 1.0
